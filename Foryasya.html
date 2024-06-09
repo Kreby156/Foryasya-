@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Белый текст на цветном фоне</title>
+    <style>
+        body {
+            background-color: #1d0329;
+            position: relative;
+        }
+        
+        .star {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            opacity: 0.5;
+            transform: rotate(45deg); /* Rotate for four-pointed star */
+        }
+        
+        .text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="text">Белый текст</div>
+    
+    <script>
+        // Создание звезд
+        const starsCount = 50; // Adjust the number of stars as desired
+        const stars = [];
+        
+        for (let i = 0; i < starsCount; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            
+            // Случайное позиционирование
+            const x = Math.random() * window.innerWidth;
+            const y = Math.random() * window.innerHeight;
+            star.style.left = `${x}px`;
+            star.style.top = `${y}px`;
+            
+            // Добавление звезды в DOM
+            document.body.appendChild(star);
+            
+            // Сохранение звезды в массиве
+            stars.push(star);
+        }
+    </script>
+</body>
+</html>
